@@ -68,16 +68,17 @@ a {
         color: $darkGrey;
         padding: 0rem 1rem 0.7rem 1rem;
     }
-    .bouton-explorer {
-        background: linear-gradient(to bottom right, $secondary, $primary);
-        border: none;
-        padding: 1rem 1.4rem 1rem 1.4rem;
-        font-size: 1.1rem;
-        color: $white;
-        font-weight: 300;
-        border-radius: 35px;
-        box-shadow: 0px 8px 0.7em #C9C9C9;
-    }
+}
+
+.bouton {
+    background: linear-gradient(to bottom right, $secondary, $primary);
+    border: none;
+    padding: 1rem 1.4rem 1rem 1.4rem;
+    font-size: 1.1rem;
+    color: $white;
+    font-weight: 300;
+    border-radius: 35px;
+    box-shadow: 0px 8px 0.7em #C9C9C9;
 }
 
 .fonctionnement {
@@ -201,8 +202,70 @@ footer {
 
 //menu-1
 
-.index {
+.haut__menu {
     display: flex;
+    flex-direction: row-reverse;
     align-items: center;
+    justify-content: center;
+    .fas {
+        margin-left: -8rem;
+        color: $darkGrey;
+        font-size: 1.2rem;
+    }
+}
 
+main {
+    position: relative;
+}
+
+.menu__image img {
+    width: 100%;
+}
+
+.menu {
+    background-color: $lightGrey;
+    padding: 1.3rem 0rem 1.3rem 0rem;
+    border-radius: 35px 35px 0px 0px;
+    .menu__titre {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0rem 5rem 0rem 5rem;
+        .menu--police, .far{
+            font-size: 1.8rem;
+        }
+    }
+}
+
+.menu__part {
+    margin: 0rem 2rem 0rem 2rem;
+    .menu__cat {
+        text-transform: uppercase;
+        font-weight: 300;
+        font-size: 1.2rem;
+        padding: 2rem 0rem 0.3rem 0rem;
+        border-bottom: 3px solid $tertiary;
+        width: 3rem;
+    }
+    .menu__encart a {
+        width: 95%;
+        background-color: $white;
+        border-radius: 20px;
+        padding: 0.2rem 1rem 0.2rem 1rem;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        margin-bottom: 1rem;
+        .menu__description p {
+            display: flex;
+            flex-direction: column;
+            .menu__plat h3 {
+                font-weight: 700;
+            }
+        }
+        .menu__prix p {
+            margin-top: 3rem;
+        }
+    }
 }
