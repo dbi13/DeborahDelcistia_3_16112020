@@ -17,48 +17,54 @@
         </header>
 
         <main>
-            <section class="localisation">
-                <div class="icone"><i class="fas fa-map-marker-alt"></i></div>
-                <div class="localisation__ville"><p> Paris, Belleville</p></div>
-            </section>
-
-            <section class="introduction">
-                <h1> Réservez le menu qui vous convient </h1>
-                <p> Découvrez des restaurants d'exception, séléctionnés par nos soins. </p>
-                <input class="bouton" type="button" value="Explorer nos restaurants">
-            </section>
-
-            <section class="fonctionnement">
-                <h2>Fonctionnement</h2>
-
-                <div class="fonctionnement__consigne">
-                    <div class="fonctionnement__chiffre"><p>1</p></div>
-                    <div class="fonctionnement__case">
-                        <i class="fas fa-mobile-alt"></i>
-                        <p>Choisissez un restaurant</p>
+            <section class="hautpage">
+                <section class="intro">
+                    <div class="localisation">
+                        <div class="icone"><i class="fas fa-map-marker-alt"></i></div>
+                        <div class="localisation__ville"><p> Paris, Belleville</p></div>
                     </div>
-                </div>
-
-                <div class="fonctionnement__consigne">
-                    <div class="fonctionnement__chiffre"><p>2</p></div>
-                    <div class="fonctionnement__case">
-                        <i class="fas fa-list-ul"></i>
-                        <p>Composez votre menu</p>
+    
+                    <div class="introduction">
+                        <h1> Réservez le menu qui vous convient </h1>
+                        <p> Découvrez des restaurants d'exception, séléctionnés par nos soins. </p>
+                        <input class="bouton-explorer" type="button" value="Explorer nos restaurants">
                     </div>
-                </div>
-
-                <div class="fonctionnement__consigne">
-                    <div class="fonctionnement__chiffre"><p>3</p></div>
-                    <div class="fonctionnement__case">
-                        <i class="fas fa-store"></i>
-                        <p>Dégustez au restaurant</p>
+                </section>
+    
+                <section class="fonctionnement">
+                    <h2>Fonctionnement</h2>
+    
+                    <div class="fonctionnement__consigne">
+                        <div class="fonctionnement__chiffre"><p>1</p></div>
+                        <div class="fonctionnement__case">
+                            <i class="fas fa-mobile-alt"></i>
+                            <p>Choisissez un restaurant</p>
+                        </div>
                     </div>
-                </div>
+    
+                    <div class="fonctionnement__consigne">
+                        <div class="fonctionnement__chiffre"><p>2</p></div>
+                        <div class="fonctionnement__case">
+                            <i class="fas fa-list-ul"></i>
+                            <p>Composez votre menu</p>
+                        </div>
+                    </div>
+    
+                    <div class="fonctionnement__consigne">
+                        <div class="fonctionnement__chiffre"><p>3</p></div>
+                        <div class="fonctionnement__case">
+                            <i class="fas fa-store"></i>
+                            <p>Dégustez au restaurant</p>
+                        </div>
+                    </div>
+                </section>
             </section>
+            
 
             <section class="restaurants">
                 <h2>Restaurants</h2>
 
+                <div class="restaurants__carte">
                 <div class=restaurants__menu><a id="menu-1" href="menu-1.html">
                     <div class="restaurants__image">
                         <img src="../images/restaurants/jay-wennington-N_Y88TWmGwA-unsplash.jpg" alt = "La palette du goût" >
@@ -129,7 +135,7 @@
 
         <footer>
             <h2 class="basdepage">ohmyfood</h2>
-            <div>
+            <div class="basdepage__liste">
                 <ul class="part1">
                     <li><a href=""><i class="fas fa-utensils"></i> Proposer un restaurant </a></li>
                     <li><a href=""><i class="fas fa-hands-helping"></i> Devenir partenaire </a></li>

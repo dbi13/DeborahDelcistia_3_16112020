@@ -5,6 +5,7 @@ body p, h2, a, h1 {
 
 body {
   margin: 0;
+  width: 100%;
 }
 
 .menu--police, .basdepage {
@@ -37,7 +38,7 @@ a {
   justify-content: center;
   color: #252525;
   background-color: #E5E5E5;
-  box-shadow: inset 0 0 0.3em #C5C5C5;
+  box-shadow: inset 5px 12px 5px -10px #C5C5C5;
 }
 .localisation p {
   color: #252525;
@@ -56,15 +57,14 @@ a {
 }
 .introduction p {
   font-weight: 300;
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   color: #252525;
   padding: 0rem 1rem 0.7rem 1rem;
 }
-
-.bouton {
+.introduction .bouton-explorer {
+  padding: 1rem 1.4rem 1rem 1.4rem;
   background: linear-gradient(to bottom right, #FF79DA, #9356DC);
   border: none;
-  padding: 1rem 1.4rem 1rem 1.4rem;
   font-size: 1.1rem;
   color: #FFFFFF;
   font-weight: 300;
@@ -73,7 +73,7 @@ a {
 }
 
 .fonctionnement {
-  margin-left: 1rem;
+  margin: 0rem 1rem 0rem 1rem;
 }
 .fonctionnement .fonctionnement__consigne {
   position: relative;
@@ -102,12 +102,12 @@ a {
   background-color: #ECECEC;
   padding: 0.6rem 1.6rem 0.6rem 1.6rem;
   border-radius: 20px;
-  width: 65%;
+  width: 75%;
   margin: 0rem 0rem 2rem 0rem;
   box-shadow: 0px 3px 0.7em #DADADA;
 }
 .fonctionnement .fonctionnement__consigne .fonctionnement__case p {
-  padding-left: 1.3rem;
+  padding-left: 1.2rem;
   font-weight: 500;
   font-size: 1rem;
 }
@@ -118,15 +118,15 @@ a {
 }
 
 .restaurants {
-  position: relative;
   background-color: #ECECEC;
   padding: 2rem 1rem 2rem 1rem;
+  margin: 0;
 }
 .restaurants .restaurants__menu {
   width: 85%;
   background-color: #FFFFFF;
   border-radius: 20px;
-  margin: 2rem 2rem 2rem 2rem;
+  margin: 2rem 2rem 2rem 1.5rem;
   height: 270px;
   box-shadow: 0px 8px 0.7em #DADADA;
 }
@@ -139,8 +139,8 @@ a {
   border-radius: 15px 15px 0px 0px;
 }
 .restaurants .restaurants__menu .restaurants__image img {
-  width: 100%;
-  margin-top: -2.5rem;
+  width: 110%;
+  height: auto;
 }
 .restaurants .restaurants__menu .restaurants__nouveau p {
   z-index: 1;
@@ -155,7 +155,7 @@ a {
   align-items: center;
   font-weight: 500;
   border-radius: 3px;
-  margin: -170px 0px 0px 270px;
+  margin: -170px 0px 0px 175px;
 }
 .restaurants .restaurants__menu .restaurants__texte {
   margin: 0px 0px 0px 20px;
@@ -198,13 +198,9 @@ footer .fas {
   justify-content: center;
 }
 .haut__menu .fas {
-  margin-left: -8rem;
+  margin-left: -5rem;
   color: #252525;
   font-size: 1.2rem;
-}
-
-main {
-  position: relative;
 }
 
 .menu__image img {
@@ -212,51 +208,214 @@ main {
 }
 
 .menu {
+  position: relative;
   background-color: #ECECEC;
-  padding: 1.3rem 0rem 1.3rem 0rem;
+  padding: 0.5rem 1rem 0rem 1rem;
   border-radius: 35px 35px 0px 0px;
+  margin-top: -3rem;
+  box-shadow: 0px -8px 3em 0.1em #292929;
 }
 .menu .menu__titre {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  padding: 0rem 5rem 0rem 5rem;
+  padding: 0rem 0rem 0rem 0rem;
 }
 .menu .menu__titre .menu--police, .menu .menu__titre .far {
   font-size: 1.8rem;
+  font-weight: 500;
 }
-
-.menu__part {
-  margin: 0rem 2rem 0rem 2rem;
+.menu .menu__part {
+  margin: 0rem 0rem 2rem 0rem;
 }
-.menu__part .menu__cat {
+.menu .menu__part .menu__cat {
   text-transform: uppercase;
   font-weight: 300;
   font-size: 1.2rem;
-  padding: 2rem 0rem 0.3rem 0rem;
+  padding: 1rem 0rem 0.3rem 0rem;
   border-bottom: 3px solid #99E2D0;
   width: 3rem;
 }
-.menu__part .menu__encart a {
-  width: 95%;
+.menu .menu__part .menu__encart a {
+  width: 94%;
+  height: 55px;
   background-color: #FFFFFF;
-  border-radius: 20px;
-  padding: 0.2rem 1rem 0.2rem 1rem;
+  border-radius: 15px;
+  margin-bottom: 1rem;
+  box-shadow: 0px 8px 0.7em #DADADA;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  margin-bottom: 1rem;
+  align-items: center;
+  padding: 0.3rem 0.6rem 0.3rem 0.6rem;
 }
-.menu__part .menu__encart a .menu__description p {
-  display: flex;
-  flex-direction: column;
+.menu .menu__part .menu__description p {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 265px;
+  margin-top: -1rem;
 }
-.menu__part .menu__encart a .menu__description p .menu__plat h3 {
+.menu .menu__part .menu__description p .menu__plat h3 {
+  font-weight: 700;
+  margin-bottom: 5rem;
+}
+.menu .menu__part .menu__prix p {
+  margin-top: 3rem;
   font-weight: 700;
 }
-.menu__part .menu__encart a .menu__prix p {
-  margin-top: 3rem;
+.menu .bouton-commander {
+  padding: 1rem 3rem 1rem 3rem;
+  background: linear-gradient(to bottom right, #FF79DA, #9356DC);
+  border: none;
+  font-size: 1.1rem;
+  color: #FFFFFF;
+  font-weight: 300;
+  border-radius: 35px;
+  box-shadow: 0px 8px 0.7em #C9C9C9;
+  margin: 2rem 0rem 4rem 5rem;
+}
+
+@media all and (min-device-width: 768px) and (max-width: 1023px) {
+  .fonctionnement {
+    margin-top: 2rem;
+  }
+  .fonctionnement h2 {
+    text-align: center;
+  }
+  .fonctionnement .fonctionnement__consigne .fonctionnement__case {
+    width: 40%;
+  }
+
+  .restaurants h2 {
+    text-align: center;
+  }
+  .restaurants .restaurants__menu {
+    margin-left: 3.5rem;
+  }
+  .restaurants .restaurants__menu .restaurants__nouveau p {
+    margin-left: 32rem;
+  }
+
+  .haut__menu .fas {
+    margin-left: -15rem;
+  }
+
+  .menu__image img {
+    width: 70%;
+    text-align: center;
+    border-radius: 35px;
+    margin: 3rem 7rem 0rem 7rem;
+  }
+
+  .menu {
+    width: 64.9%;
+    border-radius: 0px 0px 30px 30px;
+    margin: -4rem 7rem 4rem 7rem;
+    box-shadow: none;
+    padding-left: 1.5rem;
+  }
+  .menu .bouton-commander {
+    margin: 2rem 0rem 4rem 9.5rem;
+  }
+}
+@media all and (min-device-width: 768px) and (max-width: 1023px), all and (min-width: 1024px) {
+  footer {
+    padding: 1rem 3rem 1rem 2rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+  footer .basdepage__liste {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0rem 0rem 0rem 4rem;
+  }
+  footer .basdepage__liste ul {
+    padding-right: 4rem;
+  }
+  footer .basdepage__liste .part2 {
+    padding-top: 2rem;
+  }
+}
+@media all and (min-width: 1024px) {
+  .hautpage {
+    display: flex;
+    flex-direction: row;
+  }
+  .hautpage .intro {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    height: 400px;
+    background-color: #ECECEC;
+  }
+  .hautpage .intro .localisation {
+    background-color: #ECECEC;
+  }
+  .hautpage .intro .introduction {
+    background-color: #ECECEC;
+    margin-top: 2rem;
+  }
+  .hautpage .fonctionnement {
+    box-shadow: inset 5px 12px 5px -10px black;
+    background-color: #252525;
+    width: 50%;
+    height: 400px;
+    margin: 0;
+  }
+  .hautpage .fonctionnement h2 {
+    margin-left: 8rem;
+    color: #FFFFFF;
+    margin-top: 2rem;
+  }
+  .hautpage .fonctionnement .fonctionnement__case {
+    background-color: #DADADA;
+    box-shadow: 0px 3px 0.3em black;
+    width: 55%;
+  }
+
+  .restaurants {
+    background-color: #FFFFFF;
+    margin-bottom: 3rem;
+  }
+  .restaurants h2 {
+    margin-left: 2rem;
+  }
+  .restaurants .restaurants__carte {
+    display: flex;
+    flex-direction: row;
+  }
+  .restaurants .restaurants__carte .restaurants__menu {
+    width: 300px;
+  }
+  .restaurants .restaurants__carte .restaurants__menu .restaurants__nouveau p {
+    margin: -170px 0px 0px 140px;
+  }
+
+  .haut__menu .fas {
+    margin-left: -30rem;
+  }
+
+  .menu__image img {
+    width: 40%;
+    text-align: center;
+    border-radius: 35px;
+    margin: 3rem 23rem 0rem 23rem;
+  }
+
+  .menu {
+    width: 37.5%;
+    border-radius: 0px 0px 30px 30px;
+    margin: -4rem 23rem 4rem 23rem;
+    box-shadow: none;
+  }
+  .menu .bouton-commander {
+    margin: 2rem 0rem 4rem 9rem;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */
