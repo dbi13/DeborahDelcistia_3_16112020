@@ -1,11 +1,16 @@
 $lightGrey: #ECECEC;
 $grey: #E5E5E5;
 $shadows:#DADADA;
+$shadows_dark:#DADADA;
+$shadows-button: #C9C9C9;
+$shadows-button_dark: darken($shadows-button, 15%);
 $darkGrey: #252525;
 $white: #FFFFFF;
 $primary: #9356DC;
 $secondary: #FF79DA;
 $tertiary: #99E2D0;
+$secondary-lighter: lighten($secondary,5%);
+$primary-lighter: lighten($primary,5%);
 
 @mixin button {
     background: linear-gradient(to bottom right, $secondary, $primary);
@@ -14,7 +19,7 @@ $tertiary: #99E2D0;
     color: $white;
     font-weight: 300;
     border-radius: 35px;
-    box-shadow: 0px 8px 0.7em #C9C9C9;
+    box-shadow: 0px 8px 0.7em $shadows-button;
 }
 
 body p, h2, a, h1 {
@@ -82,6 +87,10 @@ a {
     .bouton-explorer {
         padding: 1rem 1.4rem 1rem 1.4rem;
         @include button;
+        &:hover {
+            background: linear-gradient(to bottom right, $secondary-lighter, $primary-lighter);
+            box-shadow: 0px 8px 0.8em $shadows-button_dark;
+        }
     }
 }
 
@@ -95,6 +104,10 @@ a {
         flex-direction: row;
         justify-content: center;
         align-items: center;
+        transition: transform 200ms;
+        &:hover {
+            transform: scale(1.05);
+        }
         .fonctionnement__chiffre p {
             position: absolute;
             display: flex;
@@ -136,53 +149,85 @@ a {
     background-color: $lightGrey;
     padding: 2rem 1rem 2rem 1rem;
     margin: 0;
-    .restaurants__menu {
-        width: 85%;
-        background-color: $white;
-        border-radius: 20px;
-        margin: 2rem 2rem 2rem 1.5rem;
-        height: 270px;
-        box-shadow: 0px 8px 0.7em $shadows;
-        .restaurants__image {
-            position: relative;
-            width: 100%;
-            height: 70%;
-            text-align: center; 
-            overflow: hidden; 
-            border-radius: 15px 15px 0px 0px;
-            img {
-                width: 110%;
-                height: auto;
+    .restaurants__carte {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        .restaurants__menu {
+            width: 85%;
+            background-color: $white;
+            border-radius: 20px;
+            margin: 2rem 2rem 2rem 2rem;
+            height: 270px;
+            box-shadow: 0px 8px 0.7em $shadows;
+            &:hover + .restaurants__image{
+                opacity: 0.6;
+            }
+            .restaurants__image {
+                position: relative;
+                width: 100%;
+                height: 70%;
+                text-align: center; 
+                overflow: hidden; 
+                border-radius: 15px 15px 0px 0px;
+                img {
+                    width: 110%;
+                    height: auto;
+                }
+            }
+            .restaurants__nouveau p {
+                z-index: 1;
+                position: absolute;
+                padding: 0.7rem 1rem 0.7rem 1rem;
+                background-color: $tertiary;
+                color: #27A341;
+                width: 60px;
+                height: 10px;
+                display:flex;
+                justify-content: center;
+                align-items: center;
+                font-weight: 500;
+                border-radius: 3px;
+                margin: -170px 0px 0px 175px;
+            }
+            .restaurants__texte {    
+                margin: 0px 0px 0px 20px;
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                p {
+                    margin-top: -0.7rem;
+                }
+                .fa-heart {
+                    margin: 1.5rem 1.5rem 0rem 0rem;
+                    font-size: 1.5rem;
+                    position: relative;
+                    &:hover {
+                        color: transparent;
+                    }
+                    &:hover .fa-heart2 {
+                        font-size: 1.6rem;
+                        transform: scaleY(1);
+                    }
+                    .fa-heart2 {
+                        margin: -0.03rem 0rem 0rem -1.6rem;
+                        background:-webkit-linear-gradient(bottom, $secondary 30%, $primary 70%);
+                        background-clip:text;
+                        -webkit-background-clip:text;
+                        color:transparent;
+                        font-weight: bold;
+                        position: absolute;
+                        font-size: 0rem;
+                        bottom: 0;
+                        transform: scaleY(0);
+                        transition: transform 450ms linear;
+                    }
+ 
+                }
             }
         }
-        .restaurants__nouveau p {
-            z-index: 1;
-            position: absolute;
-            padding: 0.7rem 1rem 0.7rem 1rem;
-            background-color: $tertiary;
-            color: #27A341;
-            width: 60px;
-            height: 10px;
-            display:flex;
-            justify-content: center;
-            align-items: center;
-            font-weight: 500;
-            border-radius: 3px;
-            margin: -170px 0px 0px 175px;
-        }
-        .restaurants__texte {    
-            margin: 0px 0px 0px 20px;
-            display: flex;
-            flex-direction: row;
-            justify-content: space-between;
-            p {
-                margin-top: -0.7rem;
-            }
-            i {
-                margin: 1.5rem 1.5rem 0rem 0rem;
-                font-size: 1.6rem;
-            }
-        }
+    
     }
 }
 
@@ -207,88 +252,127 @@ footer {
 }
 
 //menus
-.haut__menu {
+.body__menu {
     display: flex;
-    flex-direction: row-reverse;
-    align-items: center;
-    justify-content: center;
-    .fas {
-        margin-left: -5rem;
-        color: $darkGrey;
-        font-size: 1.2rem;
-    }
-}
-
-.menu__image img {
-    width: 100%;
-}
-
-.menu {
-    position: relative;
-    background-color: $lightGrey;
-    padding: 0.5rem 1rem 0rem 1rem;
-    border-radius: 35px 35px 0px 0px;
-    margin-top: -3rem;
-    box-shadow: 0px -8px 3em 0.1em rgb(41, 41, 41);
-    .menu__titre {
+    flex-direction: column;
+    .haut__menu {
         display: flex;
-        flex-direction: row;
-        justify-content: space-between;
+        flex-direction: row-reverse;
         align-items: center;
-        padding: 0rem 0rem 0rem 0rem;
-        .menu--police, .far {
-            font-size: 1.8rem;
-            font-weight: 500;
+        justify-content: center;
+        .fas {
+            margin-left: -5rem;
+            color: $darkGrey;
+            font-size: 1.2rem;
         }
     }
-    .menu__part {
-        margin: 0rem 0rem 2rem 0rem;
-        .menu__cat {
-            text-transform: uppercase;
-            font-weight: 300;
-            font-size: 1.2rem;
-            padding: 1rem 0rem 0.3rem 0rem;
-            border-bottom: 3px solid $tertiary;
-            width: 3rem;
+    .main__menu {
+        margin: auto;
+        .menu__image img {
+            margin: auto;
+            width: 100%;
         }
-        .menu__encart a {
-            width: 94%;
-            height: 55px;
-            background-color: $white;
-            border-radius: 15px;
-            margin-bottom: 1rem;
-            box-shadow: 0px 8px 0.7em $shadows;
+    .menu {
+        margin: auto;
+        position: relative;
+        background-color: $lightGrey;
+        padding: 0.5rem 1rem 0rem 1rem;
+        border-radius: 35px 35px 0px 0px;
+        margin-top: -3rem;
+        box-shadow: 0px -8px 3em 0.1em rgb(41, 41, 41);
+        .menu__titre {
             display: flex;
             flex-direction: row;
             justify-content: space-between;
             align-items: center;
-            padding: 0.3rem 0.6rem 0.3rem 0.6rem;
-        }
-        .menu__description p {
-            overflow: hidden;
-            text-overflow: ellipsis;
-            white-space: nowrap;
-            width: 265px;
-            margin-top: -1rem;
-            .menu__plat h3 {
-                font-weight: 700;
-                margin-bottom: 5rem;
+            .menu--police, .far {
+                font-size: 1.8rem;
+                font-weight: 500;
             }
         }
-        .menu__prix p {
-            margin-top: 3rem;
-            font-weight: 700;
+        .menu__part {
+            margin: 0rem 0rem 2rem 0rem;
+            .menu__cat {
+                text-transform: uppercase;
+                font-weight: 300;
+                font-size: 1.2rem;
+                padding: 1rem 0rem 0.3rem 0rem;
+                border-bottom: 3px solid $tertiary;
+                width: 3rem;
+            }
+            .menu__encartPrincipal {
+                &:hover .animation__menu {
+                    width: 55px;
+                }
+                &:hover .animation__menu .fa-check-circle {
+                    transform: scale(1) rotate(360deg);
+                }
+                .menu__encart a {
+                    width: 95%;
+                    height: 55px;
+                    background-color: $white;
+                    border-radius: 15px;
+                    margin-bottom: 1rem;
+                    box-shadow: 0px 8px 0.7em $shadows;
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-between;
+                    align-items: center;
+                    padding: 0rem 0.6rem 0rem 0.6rem;
+                    .menu__description p {
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                        white-space: nowrap;
+                        width: 265px;
+                        margin-top: -1rem;
+                        .menu__plat h3 {
+                            font-weight: 700;
+                            margin-bottom: 5rem;
+                        }
+                    }
+                    .menu__prix p {
+                        margin-top: 3rem;
+                        font-weight: 700;
+                        padding-right: 0.8rem;
+                    }
+                }
+                .animation__menu {
+                    height: 55px;
+                    width: 0px;
+                    background-color: $tertiary;
+                    border-radius: 0px 15px 15px 0px;
+                    position: absolute;
+                    transition: all 300ms ease-in-out;
+                    margin-top: -4.42rem;
+                    right: 1.3rem;
+                    .fa-check-circle {
+                        font-size: 1.4rem;
+                        color: white;
+                        display: flex;
+                        justify-content: center;
+                        margin-top: 1rem;
+                        overflow: hidden;
+                        transform: scale(1) rotate(0deg);
+                        transition: transform 330ms ease-in-out;
+                    }
+                }
+            }
+        }
+        .bouton-commander {
+            padding: 1rem 3rem 1rem 3rem;
+            @include button;
+            margin: 2rem 5rem 4rem 5rem;
+            &:hover {
+                background: linear-gradient(to bottom right, $secondary-lighter, $primary-lighter);
+                box-shadow: 0px 8px 0.8em $shadows-button_dark;
+            }
         }
     }
-    .bouton-commander {
-        padding: 1rem 3rem 1rem 3rem;
-        @include button;
-        margin: 2rem 0rem 4rem 5rem;
-    }
+}
 }
 
 //format tablette
-@media all and (min-device-width: 768px) and (max-width: 1023px) {
+@media all and (min-width: 768px) and (max-width: 1023px) {
     .fonctionnement {
         margin-top: 2rem;
         h2 {
@@ -303,12 +387,14 @@ footer {
 
     .restaurants {
         h2 {
-            text-align: center;
+            text-align: left;
         }
-        .restaurants__menu {
-            margin-left: 3.5rem;
-            .restaurants__nouveau p {
-                margin-left: 32rem;
+        .restaurants__carte {
+            margin: 0rem 5rem 0rem 5rem;
+            .restaurants__menu {
+                .restaurants__nouveau p {
+                    margin-left: 19rem;
+                }
             }
         }
     }
@@ -412,10 +498,21 @@ footer {
             display: flex;
             flex-direction: row;
         .restaurants__menu {
-            width: 300px; 
-                .restaurants__nouveau p {
-                    margin: -170px 0px 0px 140px;
+            width: 500px;
+            height: 250px;
+            .restaurants__nouveau p {
+                margin: -130px 0px 0px 130px;
+                width: 50px;
+                height: 5px;
+            }
+            .restaurants__image {
+                height: 55%;
+            }
+            .restaurants__texte {    
+                i {
+                    margin: 1.5rem 1.5rem 0rem 1rem;
                 }
+            }
         }          
         }
     }
@@ -431,13 +528,13 @@ footer {
         width: 40%;
         text-align: center;
         border-radius: 35px;
-        margin: 3rem 23rem 0rem 23rem;
+        margin: 3rem 10rem 0rem 10rem;
     }
 
     .menu {
         width: 37.5%;
         border-radius: 0px 0px 30px 30px;
-        margin: -4rem 23rem 4rem 23rem;
+        margin: -4rem 10rem 4rem 10rem;
         box-shadow: none;
         .bouton-commander {
             margin: 2rem 0rem 4rem 9rem;

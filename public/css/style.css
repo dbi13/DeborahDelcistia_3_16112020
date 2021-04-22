@@ -71,6 +71,10 @@ a {
   border-radius: 35px;
   box-shadow: 0px 8px 0.7em #C9C9C9;
 }
+.introduction .bouton-explorer:hover {
+  background: linear-gradient(to bottom right, #ff93e1, #a16be0);
+  box-shadow: 0px 8px 0.8em #a3a3a3;
+}
 
 .fonctionnement {
   margin: 0rem 1rem 0rem 1rem;
@@ -81,6 +85,10 @@ a {
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  transition: transform 200ms;
+}
+.fonctionnement .fonctionnement__consigne:hover {
+  transform: scale(1.05);
 }
 .fonctionnement .fonctionnement__consigne .fonctionnement__chiffre p {
   position: absolute;
@@ -122,15 +130,24 @@ a {
   padding: 2rem 1rem 2rem 1rem;
   margin: 0;
 }
-.restaurants .restaurants__menu {
+.restaurants .restaurants__carte {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.restaurants .restaurants__carte .restaurants__menu {
   width: 85%;
   background-color: #FFFFFF;
   border-radius: 20px;
-  margin: 2rem 2rem 2rem 1.5rem;
+  margin: 2rem 2rem 2rem 2rem;
   height: 270px;
   box-shadow: 0px 8px 0.7em #DADADA;
 }
-.restaurants .restaurants__menu .restaurants__image {
+.restaurants .restaurants__carte .restaurants__menu:hover + .restaurants__image {
+  opacity: 0.6;
+}
+.restaurants .restaurants__carte .restaurants__menu .restaurants__image {
   position: relative;
   width: 100%;
   height: 70%;
@@ -138,11 +155,11 @@ a {
   overflow: hidden;
   border-radius: 15px 15px 0px 0px;
 }
-.restaurants .restaurants__menu .restaurants__image img {
+.restaurants .restaurants__carte .restaurants__menu .restaurants__image img {
   width: 110%;
   height: auto;
 }
-.restaurants .restaurants__menu .restaurants__nouveau p {
+.restaurants .restaurants__carte .restaurants__menu .restaurants__nouveau p {
   z-index: 1;
   position: absolute;
   padding: 0.7rem 1rem 0.7rem 1rem;
@@ -157,18 +174,39 @@ a {
   border-radius: 3px;
   margin: -170px 0px 0px 175px;
 }
-.restaurants .restaurants__menu .restaurants__texte {
+.restaurants .restaurants__carte .restaurants__menu .restaurants__texte {
   margin: 0px 0px 0px 20px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
 }
-.restaurants .restaurants__menu .restaurants__texte p {
+.restaurants .restaurants__carte .restaurants__menu .restaurants__texte p {
   margin-top: -0.7rem;
 }
-.restaurants .restaurants__menu .restaurants__texte i {
+.restaurants .restaurants__carte .restaurants__menu .restaurants__texte .fa-heart {
   margin: 1.5rem 1.5rem 0rem 0rem;
+  font-size: 1.5rem;
+  position: relative;
+}
+.restaurants .restaurants__carte .restaurants__menu .restaurants__texte .fa-heart:hover {
+  color: transparent;
+}
+.restaurants .restaurants__carte .restaurants__menu .restaurants__texte .fa-heart:hover .fa-heart2 {
   font-size: 1.6rem;
+  transform: scaleY(1);
+}
+.restaurants .restaurants__carte .restaurants__menu .restaurants__texte .fa-heart .fa-heart2 {
+  margin: -0.03rem 0rem 0rem -1.6rem;
+  background: -webkit-linear-gradient(bottom, #FF79DA 30%, #9356DC 70%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  font-weight: bold;
+  position: absolute;
+  font-size: 0rem;
+  bottom: 0;
+  transform: scaleY(0);
+  transition: transform 450ms linear;
 }
 
 footer {
@@ -191,23 +229,30 @@ footer .fas {
   margin-right: 0.4rem;
 }
 
-.haut__menu {
+.body__menu {
+  display: flex;
+  flex-direction: column;
+}
+.body__menu .haut__menu {
   display: flex;
   flex-direction: row-reverse;
   align-items: center;
   justify-content: center;
 }
-.haut__menu .fas {
+.body__menu .haut__menu .fas {
   margin-left: -5rem;
   color: #252525;
   font-size: 1.2rem;
 }
-
-.menu__image img {
+.body__menu .main__menu {
+  margin: auto;
+}
+.body__menu .main__menu .menu__image img {
+  margin: auto;
   width: 100%;
 }
-
-.menu {
+.body__menu .main__menu .menu {
+  margin: auto;
   position: relative;
   background-color: #ECECEC;
   padding: 0.5rem 1rem 0rem 1rem;
@@ -215,21 +260,20 @@ footer .fas {
   margin-top: -3rem;
   box-shadow: 0px -8px 3em 0.1em #292929;
 }
-.menu .menu__titre {
+.body__menu .main__menu .menu .menu__titre {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  padding: 0rem 0rem 0rem 0rem;
 }
-.menu .menu__titre .menu--police, .menu .menu__titre .far {
+.body__menu .main__menu .menu .menu__titre .menu--police, .body__menu .main__menu .menu .menu__titre .far {
   font-size: 1.8rem;
   font-weight: 500;
 }
-.menu .menu__part {
+.body__menu .main__menu .menu .menu__part {
   margin: 0rem 0rem 2rem 0rem;
 }
-.menu .menu__part .menu__cat {
+.body__menu .main__menu .menu .menu__part .menu__cat {
   text-transform: uppercase;
   font-weight: 300;
   font-size: 1.2rem;
@@ -237,8 +281,14 @@ footer .fas {
   border-bottom: 3px solid #99E2D0;
   width: 3rem;
 }
-.menu .menu__part .menu__encart a {
-  width: 94%;
+.body__menu .main__menu .menu .menu__part .menu__encartPrincipal:hover .animation__menu {
+  width: 55px;
+}
+.body__menu .main__menu .menu .menu__part .menu__encartPrincipal:hover .animation__menu .fa-check-circle {
+  transform: scale(1) rotate(360deg);
+}
+.body__menu .main__menu .menu .menu__part .menu__encartPrincipal .menu__encart a {
+  width: 95%;
   height: 55px;
   background-color: #FFFFFF;
   border-radius: 15px;
@@ -248,24 +298,45 @@ footer .fas {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  padding: 0.3rem 0.6rem 0.3rem 0.6rem;
+  padding: 0rem 0.6rem 0rem 0.6rem;
 }
-.menu .menu__part .menu__description p {
+.body__menu .main__menu .menu .menu__part .menu__encartPrincipal .menu__encart a .menu__description p {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
   width: 265px;
   margin-top: -1rem;
 }
-.menu .menu__part .menu__description p .menu__plat h3 {
+.body__menu .main__menu .menu .menu__part .menu__encartPrincipal .menu__encart a .menu__description p .menu__plat h3 {
   font-weight: 700;
   margin-bottom: 5rem;
 }
-.menu .menu__part .menu__prix p {
+.body__menu .main__menu .menu .menu__part .menu__encartPrincipal .menu__encart a .menu__prix p {
   margin-top: 3rem;
   font-weight: 700;
+  padding-right: 0.8rem;
 }
-.menu .bouton-commander {
+.body__menu .main__menu .menu .menu__part .menu__encartPrincipal .animation__menu {
+  height: 55px;
+  width: 0px;
+  background-color: #99E2D0;
+  border-radius: 0px 15px 15px 0px;
+  position: absolute;
+  transition: all 300ms ease-in-out;
+  margin-top: -4.42rem;
+  right: 1.3rem;
+}
+.body__menu .main__menu .menu .menu__part .menu__encartPrincipal .animation__menu .fa-check-circle {
+  font-size: 1.4rem;
+  color: white;
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+  overflow: hidden;
+  transform: scale(1) rotate(0deg);
+  transition: transform 330ms ease-in-out;
+}
+.body__menu .main__menu .menu .bouton-commander {
   padding: 1rem 3rem 1rem 3rem;
   background: linear-gradient(to bottom right, #FF79DA, #9356DC);
   border: none;
@@ -274,10 +345,14 @@ footer .fas {
   font-weight: 300;
   border-radius: 35px;
   box-shadow: 0px 8px 0.7em #C9C9C9;
-  margin: 2rem 0rem 4rem 5rem;
+  margin: 2rem 5rem 4rem 5rem;
+}
+.body__menu .main__menu .menu .bouton-commander:hover {
+  background: linear-gradient(to bottom right, #ff93e1, #a16be0);
+  box-shadow: 0px 8px 0.8em #a3a3a3;
 }
 
-@media all and (min-device-width: 768px) and (max-width: 1023px) {
+@media all and (min-width: 768px) and (max-width: 1023px) {
   .fonctionnement {
     margin-top: 2rem;
   }
@@ -289,13 +364,13 @@ footer .fas {
   }
 
   .restaurants h2 {
-    text-align: center;
+    text-align: left;
   }
-  .restaurants .restaurants__menu {
-    margin-left: 3.5rem;
+  .restaurants .restaurants__carte {
+    margin: 0rem 5rem 0rem 5rem;
   }
-  .restaurants .restaurants__menu .restaurants__nouveau p {
-    margin-left: 32rem;
+  .restaurants .restaurants__carte .restaurants__menu .restaurants__nouveau p {
+    margin-left: 19rem;
   }
 
   .haut__menu .fas {
@@ -390,10 +465,19 @@ footer .fas {
     flex-direction: row;
   }
   .restaurants .restaurants__carte .restaurants__menu {
-    width: 300px;
+    width: 500px;
+    height: 250px;
   }
   .restaurants .restaurants__carte .restaurants__menu .restaurants__nouveau p {
-    margin: -170px 0px 0px 140px;
+    margin: -130px 0px 0px 130px;
+    width: 50px;
+    height: 5px;
+  }
+  .restaurants .restaurants__carte .restaurants__menu .restaurants__image {
+    height: 55%;
+  }
+  .restaurants .restaurants__carte .restaurants__menu .restaurants__texte i {
+    margin: 1.5rem 1.5rem 0rem 1rem;
   }
 
   .haut__menu .fas {
@@ -404,13 +488,13 @@ footer .fas {
     width: 40%;
     text-align: center;
     border-radius: 35px;
-    margin: 3rem 23rem 0rem 23rem;
+    margin: 3rem 10rem 0rem 10rem;
   }
 
   .menu {
     width: 37.5%;
     border-radius: 0px 0px 30px 30px;
-    margin: -4rem 23rem 4rem 23rem;
+    margin: -4rem 10rem 4rem 10rem;
     box-shadow: none;
   }
   .menu .bouton-commander {
