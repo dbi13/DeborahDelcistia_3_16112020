@@ -22,6 +22,95 @@ $primary-lighter: lighten($primary,5%);
     box-shadow: 0px 8px 0.7em $shadows-button;
 }
 
+.accueil {
+    animation: hide-scroll 7s forwards;
+}
+
+//spinner loading
+.spinner {
+    animation: fading ease 2s 1s forwards;
+    animation-duration: 2s;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    overflow: hidden;
+    z-index: 1;
+    background-color: white;
+    background-size: cover;
+    .horloge { 
+        align-items: center;
+        border: 4px solid $tertiary;
+        border-radius: 50%;
+        display: flex;
+        height: 6.5rem;
+        width: 6.5rem;
+        justify-content: center;
+        position: absolute;
+        top: calc(50% - 3.5rem);
+        left: calc(50% - 3.5rem);
+        p {
+            font-family: 'Shrikhand', cursive;
+            color: $primary;
+        }
+        .aiguillemin {
+            animation: turn 1200ms linear infinite;
+            background: $tertiary;
+            border-radius: 100px;
+            transform-origin: top;
+            position: absolute;
+            top: 50%;
+            height: 43px;
+            width: 4px;
+        }
+        .aiguilleheure {
+            animation: turn 7s linear infinite;
+            background: $tertiary;
+            border-radius: 100px;
+            height: 28px;
+            transform-origin: top;
+            position: absolute;
+            top: 50%;
+            width: 4px;
+        }
+        .point {
+            background: $tertiary;
+            border-radius: 100%;
+            height: 6px;
+            width: 6px;
+            position: absolute;
+        }
+    } 
+}
+
+  @keyframes turn {
+    0% {
+      transform: rotate(0deg)
+    }
+    100% {
+      transform: rotate(360deg)
+    }
+  }
+
+  @keyframes fading {
+    40% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0; 
+        visibility: hidden;
+    }
+  }
+
+  @keyframes hide-scroll {
+    from {
+        overflow: hidden; 
+    }
+    to { 
+        overflow: visible;
+    } 
+  }
+
 body p, h2, a, h1 {
     font-family: 'Roboto', sans-serif;
     color: black;
@@ -104,10 +193,6 @@ a {
         flex-direction: row;
         justify-content: center;
         align-items: center;
-        transition: transform 200ms;
-        &:hover {
-            transform: scale(1.05);
-        }
         .fonctionnement__chiffre p {
             position: absolute;
             display: flex;
@@ -131,6 +216,12 @@ a {
             width: 75%;
             margin: 0rem 0rem 2rem 0rem;
             box-shadow: 0px 3px 0.7em $shadows;
+            &:hover {
+                background-color: lighten($primary, 30%);
+            }
+            &:hover i {
+                color: $primary;
+            }
             p {
                 padding-left: 1.2rem;
                 font-weight: 500;
@@ -223,7 +314,6 @@ a {
                         transform: scaleY(0);
                         transition: transform 450ms linear;
                     }
- 
                 }
             }
         }
@@ -252,6 +342,15 @@ footer {
 }
 
 //menus
+@keyframes transition {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
 .body__menu {
     display: flex;
     flex-direction: column;
@@ -267,10 +366,9 @@ footer {
         }
     }
     .main__menu {
-        margin: auto;
+        margin-bottom: 0px;
         .menu__image img {
-            margin: auto;
-            width: 100%;
+            width: 40%;
         }
     .menu {
         margin: auto;
@@ -323,7 +421,7 @@ footer {
                         overflow: hidden;
                         text-overflow: ellipsis;
                         white-space: nowrap;
-                        width: 265px;
+                        width: 320px;
                         margin-top: -1rem;
                         .menu__plat h3 {
                             font-weight: 700;
@@ -334,37 +432,51 @@ footer {
                         margin-top: 3rem;
                         font-weight: 700;
                         padding-right: 0.8rem;
+                        }
                     }
-                }
                 .animation__menu {
-                    height: 55px;
-                    width: 0px;
-                    background-color: $tertiary;
-                    border-radius: 0px 15px 15px 0px;
-                    position: absolute;
-                    transition: all 300ms ease-in-out;
-                    margin-top: -4.42rem;
-                    right: 1.3rem;
-                    .fa-check-circle {
-                        font-size: 1.4rem;
-                        color: white;
-                        display: flex;
-                        justify-content: center;
-                        margin-top: 1rem;
-                        overflow: hidden;
-                        transform: scale(1) rotate(0deg);
-                        transition: transform 330ms ease-in-out;
-                    }
-                }
+                        height: 55px;
+                        width: 0px;
+                        background-color: $tertiary;
+                        border-radius: 0px 15px 15px 0px;
+                        transition: all 300ms ease-in-out;
+                        margin-top: -3.42rem;
+                        right: 1.3rem;                        
+                        margin-left: 3rem;
+                        .fa-check-circle {
+                            font-size: 1.4rem;
+                            color: white;
+                            display: flex;
+                            align-items: center;
+                            margin-top: 1rem;
+                            padding-top: 1rem;
+                            overflow: hidden;
+                            padding-left: 1rem;
+                            transform: scale(1) rotate(0deg);
+                            transition: transform 330ms ease-in-out;
+                    } 
+                }   
             }
-        }
-        .bouton-commander {
-            padding: 1rem 3rem 1rem 3rem;
-            @include button;
-            margin: 2rem 5rem 4rem 5rem;
-            &:hover {
-                background: linear-gradient(to bottom right, $secondary-lighter, $primary-lighter);
-                box-shadow: 0px 8px 0.8em $shadows-button_dark;
+            .entrées {
+                opacity:0;
+                animation: transition 800ms ease-in-out 600ms forwards;
+            }
+            .plats {
+                opacity:0;
+                animation: transition 800ms ease-in-out 900ms forwards;
+            }
+            .desserts {
+                opacity:0;
+                animation: transition 800ms ease-in-out 1200ms forwards;
+            }
+            .bouton-commander {
+                padding: 1rem 3rem 1rem 3rem;
+                @include button;
+                margin: 2rem 5rem 4rem 8.5rem;
+                &:hover {
+                    background: linear-gradient(to bottom right, $secondary-lighter, $primary-lighter);
+                    box-shadow: 0px 8px 0.8em $shadows-button_dark;
+                }
             }
         }
     }
