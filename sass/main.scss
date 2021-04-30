@@ -1,0 +1,656 @@
+$lightGrey: #ECECEC;
+$grey: #E5E5E5;
+$shadows:#DADADA;
+$shadows_dark:#DADADA;
+$shadows-button: #C9C9C9;
+$shadows-button_dark: darken($shadows-button, 15%);
+$darkGrey: #252525;
+$white: #FFFFFF;
+$primary: #9356DC;
+$secondary: #FF79DA;
+$tertiary: #99E2D0;
+$secondary-lighter: lighten($secondary,5%);
+$primary-lighter: lighten($primary,5%);
+
+@mixin button {
+    background: linear-gradient(to bottom right, $secondary, $primary);
+    border: none;
+    font-size: 1.1rem;
+    color: $white;
+    font-weight: 300;
+    border-radius: 35px;
+    box-shadow: 0px 8px 0.7em $shadows-button;
+}
+
+.accueil {
+    animation: hide-scroll 7s forwards;
+}
+
+//spinner loading
+.spinner {
+    animation: fading ease 2s 1s forwards;
+    animation-duration: 2s;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    overflow: hidden;
+    z-index: 1;
+    background-color: white;
+    background-size: cover;
+    .horloge { 
+        align-items: center;
+        border: 4px solid $tertiary;
+        border-radius: 50%;
+        display: flex;
+        height: 6.5rem;
+        width: 6.5rem;
+        justify-content: center;
+        position: absolute;
+        top: calc(50% - 3.5rem);
+        left: calc(50% - 3.5rem);
+        p {
+            font-family: 'Shrikhand', cursive;
+            color: $primary;
+        }
+        .aiguillemin {
+            animation: turn 1200ms linear infinite;
+            background: $tertiary;
+            border-radius: 100px;
+            transform-origin: top;
+            position: absolute;
+            top: 50%;
+            height: 43px;
+            width: 4px;
+        }
+        .aiguilleheure {
+            animation: turn 7s linear infinite;
+            background: $tertiary;
+            border-radius: 100px;
+            height: 28px;
+            transform-origin: top;
+            position: absolute;
+            top: 50%;
+            width: 4px;
+        }
+        .point {
+            background: $tertiary;
+            border-radius: 100%;
+            height: 6px;
+            width: 6px;
+            position: absolute;
+        }
+    } 
+}
+
+  @keyframes turn {
+    0% {
+      transform: rotate(0deg)
+    }
+    100% {
+      transform: rotate(360deg)
+    }
+  }
+
+  @keyframes fading {
+    40% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0; 
+        visibility: hidden;
+    }
+  }
+
+  @keyframes hide-scroll {
+    from {
+        overflow: hidden; 
+    }
+    to { 
+        overflow: visible;
+    } 
+  }
+
+body p, h2, a, h1 {
+    font-family: 'Roboto', sans-serif;
+    color: black;
+}
+
+body {
+    margin: 0;
+    width: 100%;
+}
+
+.menu--police, .basdepage {
+    font-family: 'Shrikhand', cursive;
+}
+
+a {
+    text-decoration: none;
+}
+
+.basdepage {
+    font-weight: 400;
+}
+
+.logo {
+    display: flex;
+    justify-content: center;
+    margin: 1rem 0rem 1rem 0rem;
+    text-align: center;
+    img {
+        width: 10rem;
+    }
+}
+
+.localisation {
+    width: 100%;
+    display : flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    color: $darkGrey;
+    background-color: $grey;
+    box-shadow: inset 5px 12px 5px -10px #C5C5C5; 
+    p {
+        color: $darkGrey;
+        font-weight: 500;
+        padding-left: 0.8rem;
+    }
+}
+
+.introduction {
+    background-color: $lightGrey;
+    text-align: center;
+    padding : 0.5rem 0 2.2rem 0rem;
+    h1{
+        font-size: 1.6rem;
+        padding: 0.7rem 2.2rem 0rem 2.2rem;
+    }
+    p {
+        font-weight: 300;
+        font-size: 1.2rem;
+        color: $darkGrey;
+        padding: 0rem 1rem 0.7rem 1rem;
+    }
+    .bouton-explorer {
+        padding: 1rem 1.4rem 1rem 1.4rem;
+        @include button;
+        &:hover {
+            background: linear-gradient(to bottom right, $secondary-lighter, $primary-lighter);
+            box-shadow: 0px 8px 0.8em $shadows-button_dark;
+        }
+    }
+}
+
+
+
+.fonctionnement {
+    margin: 0rem 1rem 0rem 1rem;
+    .fonctionnement__consigne {
+        position: relative;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        .fonctionnement__chiffre p {
+            position: absolute;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: -1.5rem 0rem 0rem -0.7rem;
+            border-radius:50%;
+            width:10px;
+            height:10px;
+            padding: 0.4rem;
+            color: $white;
+            background-color: $primary;
+        }
+        .fonctionnement__case {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            background-color: $lightGrey;
+            padding: 0.6rem 1.6rem 0.6rem 1.6rem;
+            border-radius: 20px;
+            width: 75%;
+            margin: 0rem 0rem 2rem 0rem;
+            box-shadow: 0px 3px 0.7em $shadows;
+            &:hover {
+                background-color: lighten($primary, 30%);
+            }
+            &:hover i {
+                color: $primary;
+            }
+            p {
+                padding-left: 1.2rem;
+                font-weight: 500;
+                font-size: 1rem;
+            }
+            i {
+                color: $darkGrey;
+                font-size: 1.3rem;
+                padding-left: 1rem;
+            }
+        }
+    }
+}
+
+.restaurants {
+    background-color: $lightGrey;
+    padding: 2rem 1rem 2rem 1rem;
+    margin: 0;
+    .restaurants__carte {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        .restaurants__menu {
+            width: 85%;
+            background-color: $white;
+            border-radius: 20px;
+            margin: 2rem 2rem 2rem 2rem;
+            height: 270px;
+            box-shadow: 0px 8px 0.7em $shadows;
+            &:hover + .restaurants__image{
+                opacity: 0.6;
+            }
+            .restaurants__image {
+                position: relative;
+                width: 100%;
+                height: 70%;
+                text-align: center; 
+                overflow: hidden; 
+                border-radius: 15px 15px 0px 0px;
+                img {
+                    width: 110%;
+                    height: auto;
+                }
+            }
+            .restaurants__nouveau p {
+                z-index: 1;
+                position: absolute;
+                padding: 0.7rem 1rem 0.7rem 1rem;
+                background-color: $tertiary;
+                color: #27A341;
+                width: 60px;
+                height: 10px;
+                display:flex;
+                justify-content: center;
+                align-items: center;
+                font-weight: 500;
+                border-radius: 3px;
+                margin: -170px 0px 0px 175px;
+            }
+            .restaurants__texte {    
+                margin: 0px 0px 0px 20px;
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                p {
+                    margin-top: -0.7rem;
+                }
+                .fa-heart {
+                    margin: 1.5rem 1.5rem 0rem 0rem;
+                    font-size: 1.5rem;
+                    position: relative;
+                    &:hover {
+                        color: transparent;
+                    }
+                    &:hover .fa-heart2 {
+                        font-size: 1.6rem;
+                        transform: scaleY(1);
+                    }
+                    .fa-heart2 {
+                        margin: -0.03rem 0rem 0rem -1.6rem;
+                        background:-webkit-linear-gradient(bottom, $secondary 30%, $primary 70%);
+                        background-clip:text;
+                        -webkit-background-clip:text;
+                        color:transparent;
+                        font-weight: bold;
+                        position: absolute;
+                        font-size: 0rem;
+                        bottom: 0;
+                        transform: scaleY(0);
+                        transition: transform 450ms linear;
+                    }
+                }
+            }
+        }
+    
+    }
+}
+
+footer {
+    padding: 0.5rem 0rem 1rem 2rem;
+    background-color: $darkGrey; 
+    h2, a {
+        color: $white
+    }
+    li {
+        list-style-type: none;
+        list-style-position: inside;
+        margin-left: -2rem;
+        padding-bottom: 0.5rem;
+    }
+    .part2 {
+        margin-top: -1rem;
+    }
+    .fas {
+        margin-right: 0.4rem;
+    }
+}
+
+//menus
+@keyframes transition {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.body__menu {
+    display: flex;
+    flex-direction: column;
+    .haut__menu {
+        display: flex;
+        flex-direction: row-reverse;
+        align-items: center;
+        justify-content: center;
+        .fas {
+            margin-left: -5rem;
+            color: $darkGrey;
+            font-size: 1.2rem;
+        }
+    }
+    .main__menu {
+        margin-bottom: 0px;
+        .menu__image img {
+            width: 40%;
+        }
+    .menu {
+        margin: auto;
+        position: relative;
+        background-color: $lightGrey;
+        padding: 0.5rem 1rem 0rem 1rem;
+        border-radius: 35px 35px 0px 0px;
+        margin-top: -3rem;
+        box-shadow: 0px -8px 3em 0.1em rgb(41, 41, 41);
+        .menu__titre {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            .menu--police, .far {
+                font-size: 1.8rem;
+                font-weight: 500;
+            }
+        }
+        .menu__part {
+            margin: 0rem 0rem 2rem 0rem;
+            .menu__cat {
+                text-transform: uppercase;
+                font-weight: 300;
+                font-size: 1.2rem;
+                padding: 1rem 0rem 0.3rem 0rem;
+                border-bottom: 3px solid $tertiary;
+                width: 3rem;
+            }
+            .menu__encartPrincipal {
+                &:hover .animation__menu {
+                    width: 55px;
+                }
+                &:hover .animation__menu .fa-check-circle {
+                    transform: scale(1) rotate(360deg);
+                }
+                .menu__encart a {
+                    width: 95%;
+                    height: 55px;
+                    background-color: $white;
+                    border-radius: 15px;
+                    margin-bottom: 1rem;
+                    box-shadow: 0px 8px 0.7em $shadows;
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-between;
+                    align-items: center;
+                    padding: 0rem 0.6rem 0rem 0.6rem;
+                    .menu__description p {
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                        white-space: nowrap;
+                        width: 320px;
+                        margin-top: -1rem;
+                        .menu__plat h3 {
+                            font-weight: 700;
+                            margin-bottom: 5rem;
+                        }
+                    }
+                    .menu__prix p {
+                        margin-top: 3rem;
+                        font-weight: 700;
+                        padding-right: 0.8rem;
+                        }
+                    }
+                .animation__menu {
+                        height: 55px;
+                        width: 0px;
+                        background-color: $tertiary;
+                        border-radius: 0px 15px 15px 0px;
+                        transition: all 300ms ease-in-out;
+                        margin-top: -3.42rem;
+                        right: 1.3rem;                        
+                        margin-left: 3rem;
+                        .fa-check-circle {
+                            font-size: 1.4rem;
+                            color: white;
+                            display: flex;
+                            align-items: center;
+                            margin-top: 1rem;
+                            padding-top: 1rem;
+                            overflow: hidden;
+                            padding-left: 1rem;
+                            transform: scale(1) rotate(0deg);
+                            transition: transform 330ms ease-in-out;
+                    } 
+                }   
+            }
+            .entrées {
+                opacity:0;
+                animation: transition 800ms ease-in-out 600ms forwards;
+            }
+            .plats {
+                opacity:0;
+                animation: transition 800ms ease-in-out 900ms forwards;
+            }
+            .desserts {
+                opacity:0;
+                animation: transition 800ms ease-in-out 1200ms forwards;
+            }
+            .bouton-commander {
+                padding: 1rem 3rem 1rem 3rem;
+                @include button;
+                margin: 2rem 5rem 4rem 8.5rem;
+                &:hover {
+                    background: linear-gradient(to bottom right, $secondary-lighter, $primary-lighter);
+                    box-shadow: 0px 8px 0.8em $shadows-button_dark;
+                }
+            }
+        }
+    }
+}
+}
+
+//format tablette
+@media all and (min-width: 768px) and (max-width: 1023px) {
+    .fonctionnement {
+        margin-top: 2rem;
+        h2 {
+            text-align: center;
+        }
+        .fonctionnement__consigne {
+            .fonctionnement__case {
+            width: 40%;
+            }
+        }
+    }
+
+    .restaurants {
+        h2 {
+            text-align: left;
+        }
+        .restaurants__carte {
+            margin: 0rem 5rem 0rem 5rem;
+            .restaurants__menu {
+                .restaurants__nouveau p {
+                    margin-left: 19rem;
+                }
+            }
+        }
+    }
+
+    //menus
+    .haut__menu {
+        .fas {
+            margin-left: -15rem;
+        }
+    }
+
+    .menu__image img {
+        width: 70%;
+        text-align: center;
+        border-radius: 35px;
+        margin: 3rem 7rem 0rem 7rem;
+    }
+
+    .menu {
+        width: 64.9%;
+        border-radius: 0px 0px 30px 30px;
+        margin: -4rem 7rem 4rem 7rem;
+        box-shadow: none;
+        padding-left: 1.5rem;
+        .bouton-commander {
+            margin: 2rem 0rem 4rem 9.5rem;
+        }
+    }
+
+}
+
+//format tablette + desktop
+@media all and (min-device-width: 768px) and (max-width: 1023px), all and (min-width: 1024px) {
+    footer {
+        padding: 1rem 3rem 1rem 2rem;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+            .basdepage__liste {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                padding: 0rem 0rem 0rem 4rem;
+                ul {
+                    padding-right: 4rem;
+                }
+                .part2 {
+                    padding-top: 2rem;
+                }
+            }
+    }
+    
+}
+
+//format desktop
+@media all and (min-width: 1024px) {
+    .hautpage {
+        display: flex;
+        flex-direction: row;
+        .intro {
+            display: flex;
+            flex-direction: column;
+            width: 50%;
+            height: 400px;
+            background-color: $lightGrey;
+            .localisation {
+                background-color: $lightGrey;
+            }
+            .introduction {
+                background-color: $lightGrey;
+                margin-top: 2rem;
+            }
+        }
+        .fonctionnement {
+            box-shadow: inset 5px 12px 5px -10px black; 
+            background-color: $darkGrey;
+            width: 50%;
+            height: 400px;
+            margin:0;
+            h2 {
+                margin-left: 8rem;
+                color: $white;
+                margin-top: 2rem;
+            }
+            .fonctionnement__case {
+                background-color: $shadows;
+                box-shadow: 0px 3px 0.3em black;
+                width: 55%;
+            }
+        }
+    }
+
+    .restaurants {
+        background-color: $white;
+        margin-bottom: 3rem;
+        h2 {
+            margin-left: 2rem;
+        }
+        .restaurants__carte{
+            display: flex;
+            flex-direction: row;
+        .restaurants__menu {
+            width: 500px;
+            height: 250px;
+            .restaurants__nouveau p {
+                margin: -130px 0px 0px 130px;
+                width: 50px;
+                height: 5px;
+            }
+            .restaurants__image {
+                height: 55%;
+            }
+            .restaurants__texte {    
+                i {
+                    margin: 1.5rem 1.5rem 0rem 1rem;
+                }
+            }
+        }          
+        }
+    }
+
+    //menus
+    .haut__menu {
+        .fas {
+            margin-left: -30rem;
+        }
+    }
+
+    .menu__image img {
+        width: 40%;
+        text-align: center;
+        border-radius: 35px;
+        margin: 3rem 10rem 0rem 10rem;
+    }
+
+    .menu {
+        width: 37.5%;
+        border-radius: 0px 0px 30px 30px;
+        margin: -4rem 10rem 4rem 10rem;
+        box-shadow: none;
+        .bouton-commander {
+            margin: 2rem 0rem 4rem 9rem;
+        }
+    }
+}
+
