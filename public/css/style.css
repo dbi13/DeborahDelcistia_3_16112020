@@ -247,8 +247,8 @@ a {
   width: 110%;
   height: auto;
 }
-.restaurants .restaurants__carte .restaurants__menu .restaurants__nouveau p {
-  z-index: 1;
+.restaurants .restaurants__carte .restaurants__menu .restaurants__image .restaurants__nouveau p {
+  z-index: 2;
   position: absolute;
   padding: 0.7rem 1rem 0.7rem 1rem;
   background-color: #99E2D0;
@@ -260,7 +260,9 @@ a {
   align-items: center;
   font-weight: 500;
   border-radius: 3px;
-  margin: -170px 0px 0px 175px;
+  margin: 0px 0px 0px 0px;
+  top: 20px;
+  right: 20px;
 }
 .restaurants .restaurants__carte .restaurants__menu .restaurants__texte {
   margin: 0px 0px 0px 20px;
@@ -398,17 +400,21 @@ footer .fas {
   padding: 0rem 0rem 0rem 0.6rem;
 }
 .body__menu .main__menu .menu .menu__part .menu__encartPrincipal .menu__encart a .menu__description p {
+  font-size: 0.9rem;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  width: 320px;
+  width: 220px;
   margin-top: -1rem;
+  margin-right: 1rem;
 }
-.body__menu .main__menu .menu .menu__part .menu__encartPrincipal .menu__encart a .menu__description p .menu__plat h3 {
+.body__menu .main__menu .menu .menu__part .menu__encartPrincipal .menu__encart a .menu__description h3 {
+  font-size: 1rem;
   font-weight: 700;
-  margin-bottom: 5rem;
+  margin-bottom: 1.5rem;
 }
 .body__menu .main__menu .menu .menu__part .menu__encartPrincipal .menu__encart a .menu__prix p {
+  font-size: 0.9rem;
   margin-top: 3rem;
   font-weight: 700;
 }
@@ -611,6 +617,10 @@ footer .fas {
     width: 37.5%;
     border-radius: 0px 0px 30px 30px;
     box-shadow: none;
+  }
+
+  .menu__encartPrincipal .menu__encart a .menu__description p {
+    padding-right: 5rem;
   }
 }
 
