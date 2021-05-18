@@ -354,6 +354,7 @@ footer {
 .body__menu {
     display: flex;
     flex-direction: column;
+    margin: 0;
     .haut__menu {
         display: flex;
         flex-direction: row-reverse;
@@ -368,13 +369,14 @@ footer {
     .main__menu {
         margin-bottom: 0px;
         .menu__image img {
-            width: 40%;
+            width: 100%;
+            text-align: center;
         }
     .menu {
         margin: auto;
         position: relative;
         background-color: $lightGrey;
-        padding: 0.5rem 1rem 0rem 1rem;
+        padding: 0.5rem 1rem 1rem 1rem;
         border-radius: 35px 35px 0px 0px;
         margin-top: -3rem;
         box-shadow: 0px -8px 3em 0.1em rgb(41, 41, 41);
@@ -416,7 +418,7 @@ footer {
                     flex-direction: row;
                     justify-content: space-between;
                     align-items: center;
-                    padding: 0rem 0.6rem 0rem 0.6rem;
+                    padding: 0rem 0rem 0rem 0.6rem;
                     .menu__description p {
                         overflow: hidden;
                         text-overflow: ellipsis;
@@ -431,18 +433,16 @@ footer {
                     .menu__prix p {
                         margin-top: 3rem;
                         font-weight: 700;
-                        padding-right: 0.8rem;
                         }
                     }
-                .animation__menu {
+                    .animation__menu {
                         height: 55px;
                         width: 0px;
                         background-color: $tertiary;
                         border-radius: 0px 15px 15px 0px;
                         transition: all 300ms ease-in-out;
-                        margin-top: -3.42rem;
-                        right: 1.3rem;                        
-                        margin-left: 3rem;
+                        margin-top: -1rem;
+                        right: 0rem;                        
                         .fa-check-circle {
                             font-size: 1.4rem;
                             color: white;
@@ -454,8 +454,8 @@ footer {
                             padding-left: 1rem;
                             transform: scale(1) rotate(0deg);
                             transition: transform 330ms ease-in-out;
-                    } 
-                }   
+                        } 
+                    }   
             }
             .entrées {
                 opacity:0;
@@ -472,7 +472,8 @@ footer {
             .bouton-commander {
                 padding: 1rem 3rem 1rem 3rem;
                 @include button;
-                margin: 2rem 5rem 4rem 8.5rem;
+                margin: 3rem auto 0rem auto;
+                display: block;
                 &:hover {
                     background: linear-gradient(to bottom right, $secondary-lighter, $primary-lighter);
                     box-shadow: 0px 8px 0.8em $shadows-button_dark;
@@ -517,12 +518,17 @@ footer {
             margin-left: -15rem;
         }
     }
+    
+    .menu__image {
+        width: 68%;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 2rem;
+    }
 
     .menu__image img {
-        width: 70%;
-        text-align: center;
-        border-radius: 35px;
-        margin: 3rem 7rem 0rem 7rem;
+        border-radius: 35px 35px 0px 0px;
+        margin: 3rem 0rem 0rem 0rem;
     }
 
     .menu {
@@ -531,15 +537,12 @@ footer {
         margin: -4rem 7rem 4rem 7rem;
         box-shadow: none;
         padding-left: 1.5rem;
-        .bouton-commander {
-            margin: 2rem 0rem 4rem 9.5rem;
-        }
     }
 
 }
 
 //format tablette + desktop
-@media all and (min-device-width: 768px) and (max-width: 1023px), all and (min-width: 1024px) {
+@media all and (min-width: 768px) {
     footer {
         padding: 1rem 3rem 1rem 2rem;
         display: flex;
@@ -632,25 +635,25 @@ footer {
     //menus
     .haut__menu {
         .fas {
-            margin-left: -30rem;
+            margin-left: -20rem;
         }
     }
 
-    .menu__image img {
+    .menu__image {
         width: 40%;
-        text-align: center;
-        border-radius: 35px;
-        margin: 3rem 10rem 0rem 10rem;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 3rem;
+    }
+
+    .menu__image img {
+        border-radius: 35px 35px 0px 0px;
     }
 
     .menu {
         width: 37.5%;
         border-radius: 0px 0px 30px 30px;
-        margin: -4rem 10rem 4rem 10rem;
         box-shadow: none;
-        .bouton-commander {
-            margin: 2rem 0rem 4rem 9rem;
-        }
     }
 }
 
