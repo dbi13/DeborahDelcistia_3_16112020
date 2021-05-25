@@ -30,12 +30,11 @@ $primary-lighter: lighten($primary,5%);
 .spinner {
     animation: fading ease 2s 1s forwards;
     animation-duration: 2s;
-    z-index: 1;
     width: 100%;
     height: 100%;
     position: absolute;
     overflow: hidden;
-    z-index: 1;
+    z-index: 4;
     background-color: white;
     background-size: cover;
     .horloge { 
@@ -381,7 +380,6 @@ footer {
         padding: 0.5rem 1rem 1rem 1rem;
         border-radius: 35px 35px 0px 0px;
         margin-top: -3rem;
-        box-shadow: 0px -8px 3em 0.1em rgb(41, 41, 41);
         .menu__titre {
             display: flex;
             flex-direction: row;
@@ -421,6 +419,8 @@ footer {
                     justify-content: space-between;
                     align-items: center;
                     padding: 0rem 0rem 0rem 0.6rem;
+                    margin-left: auto;
+                    margin-right: auto;
                     .menu__description p {
                         font-size: 0.9rem;
                         overflow: hidden;
@@ -439,6 +439,7 @@ footer {
                         font-size: 0.9rem;
                         margin-top: 3rem;
                         font-weight: 700;
+                        margin-left: -1.7rem;
                         }
                     }
                     .animation__menu {
@@ -453,7 +454,7 @@ footer {
                             font-size: 1.4rem;
                             color: white;
                             display: flex;
-                            align-items: center;
+                            align-content: center;
                             margin-top: 1rem;
                             padding-top: 1rem;
                             overflow: hidden;
@@ -491,7 +492,7 @@ footer {
 }
 
 //format tablette
-@media all and (min-width: 768px) and (max-width: 1023px) {
+@media all and (min-width: 768px) and (max-width: 1022px) {
     .fonctionnement {
         margin-top: 2rem;
         h2 {
@@ -541,10 +542,22 @@ footer {
         width: 64.9%;
         border-radius: 0px 0px 30px 30px;
         margin: -4rem 7rem 4rem 7rem;
-        box-shadow: none;
         padding-left: 1.5rem;
     }
 
+    .menu__part {
+        .menu__encartPrincipal {
+            .menu__encart {
+                margin-left: auto;
+                margin-right: auto;
+                width: 90%;
+                .menu__description {
+                    width: 420px;
+                    margin-right: -6rem;
+                }
+            }
+        }
+    }
 }
 
 //format tablette + desktop
@@ -572,7 +585,7 @@ footer {
 }
 
 //format desktop
-@media all and (min-width: 1024px) {
+@media all and (min-width: 1022px) {
     .hautpage {
         display: flex;
         flex-direction: row;
@@ -659,13 +672,16 @@ footer {
     .menu {
         width: 37.5%;
         border-radius: 0px 0px 30px 30px;
-        box-shadow: none;
     }
 
     .menu__encartPrincipal {
         .menu__encart a {
-            .menu__description p {
-                padding-right: 5rem;
+            .menu__description {
+                width: 300px;
+                margin-right: -4rem;
+            }
+            .menu__prix {
+                margin-left: 2rem;
             }
         }
     }
